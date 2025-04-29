@@ -1,0 +1,126 @@
+
+
+div.FreezeAllWork {
+	display: none;
+	background-image: url(transparency.png);
+	background-color: rgba(0, 0, 0, 1);
+	opacity: 0.8;
+	width: 100%;
+	height: 100vh;
+	height: 100%;
+	z-index: 9999;
+	position: fixed;
+	top: 0px;
+	left: 0px;
+	text-align: center;
+}
+
+div.FreezeAllWork img {
+	margin-top: 15%;
+	width: 15%;
+}
+
+div.custompopup {
+	display: none;
+	background-image: url(transparency.png);
+	background-color: rgba(0, 0, 0, 1);
+	opacity: 0.8;
+	width: 100%;
+	height: 100vh;
+	height: 100%;
+	z-index: 99;
+	position: fixed;
+	top: 0px;
+	left: 0px;
+	text-align: center;
+}
+div.custompopupcontent{
+	margin-top: 5%;
+	margin-left: 20%;
+	width:50%;
+	z-index: 100;
+		background-color: #fff;
+		vertical-align: center;
+		
+}
+
+.freezetablediv {
+ 
+ 
+  overflow: auto;
+  position: relative;
+}
+
+.freezetabletable {
+  position: relative;
+  border-collapse: collapse;
+ 
+}
+.freezetabletable thead th {
+  position: -webkit-sticky; /* for Safari */
+  position: sticky;
+  top: 0;
+  color:#000000;
+ background-color:#f8f9fa;
+  border: 1px solid #e9ecef;
+  background-clip: padding-box; 
+  height:25px;
+  
+}
+.freezetabletable thead td {
+  position: -webkit-sticky; /* for Safari */
+  position: sticky;
+  top: 25px;
+  color:#000000;
+ background-color:#f8f9fa;
+  border: 1px solid #e9ecef;
+  background-clip: padding-box; 
+  
+}
+
+.freezetabletable tbody td {
+
+  border: 1px solid rgba(0, 0, 0, 0.08);
+   background-clip: padding-box; 
+   border-width: 0 0 1px 0;
+}
+
+
+.freezetabletable tfoot td {
+
+ 
+ background-color:var(--freezetabletable-footer-bg);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  background-clip: padding-box;
+}
+.freezetablesort{
+	padding-right: 18px;
+	position: relative;
+}
+.freezetableheaderlink{
+	text-decoration: none;
+	color: #000 !important;
+}
+
+.freezetablesort:before,
+.freezetablesort:after {
+	border: 4px solid transparent;
+	content: "";
+	display: block;
+	height: 0;
+	right: 5px;
+	top: 50%;
+	position: absolute;
+	width: 0;
+}
+.freezetablesort:before {
+	border-bottom-color: #666;
+	margin-top: -9px;
+}
+.freezetablesort:after {
+	border-top-color: #666;
+	margin-top: 1px;
+}
+.freezetablefilterdategte::after {
+	  content: "aaaa";
+}

@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:composite="http://java.sun.com/jsf/composite"
+	xmlns:bte="http://java.sun.com/jsf/composite/bte"
+	xmlns:p="http://primefaces.org/ui">
+<f:view>	
+<ui:composition template="/resources/maintemplate.xhtml"> 
+	<ui:define name="title"></ui:define>
+	<ui:define name="pagetitle">Request List</ui:define>
+	<ui:define name="body">
+	<div style="width:100%;align:center" align="center">
+	<table>
+	<tr>
+	<td>Req.Id</td><td><p:inputText value="#{RequestView.ws_req_no}" size="15" ><p:keyFilter mask="pint" /> </p:inputText></td>
+	<td>Ref.No</td><td><p:inputText  value="#{RequestView.client_ref_no}" size="15" /></td>
+	<td>API for</td><td><p:inputText value="#{RequestView.api}" size="15" /></td>
+	<td>From</td><td><p:calendar  value="#{RequestView.fromdate}" mask="true" pattern="dd-MM-yyyy" navigator="true" size="10" /> </td>
+	<td>To</td><td><p:calendar  value="#{RequestView.todate}" mask="true" pattern="dd-MM-yyyy" navigator="true" size="10" /> </td>
+	<td><p:commandButton action="#{RequestView.search}" value="Search" update="@([id$=req_list])" onclick="displayProgress()" oncomplete="hideProgress()"></p:commandButton> </td>
+	</tr>
+	</table>
+	
+	<p:dataTable id="req_list" value="#{RequestView.list}" var="list" rowIndexVar="row">
+	<p:column  headerText="#" width="40">#{row+1}</p:column>
+	<p:column headerText="Key" width="150">
+	<h:outputLink value="#{ApplicationBean.applicationName}/apidetails/#{list.ws_req_service_id}"> #{list.api_for}</h:outputLink>
+	
+	</p:column>
+	<p:column headerText="Name" width="150">#{list.ws_service_name}</p:column>
+	<p:column headerText="Req.Id" width="80">#{list.ws_req_id}</p:column>
+	<p:column headerText="Ref.No" width="160">#{list.ws_req_client_ref_uid}</p:column>
+	
+	<p:column headerText="Request Time" width="180">
+	
+	<h:outputText value="#{list.ws_req_date}" converter="ConverterDateTime" /> </p:column>
+	<p:column headerText="Response Time" width="180"><h:outputText value="#{list.ws_req_response_time}" converter="ConverterDateTime" /> </p:column>
+	<p:column headerText="Response" width="100">#{list.ws_req_response_code}</p:column>
+	
+	<p:column   width="20"><p:commandButton action="#{RequestView.onselect(list)}" onclick="displayProgress()" oncomplete="PF('dialogdetail').show();hideProgress()" update="@([id$=dialogdetail])" icon="fa fa-files-o"></p:commandButton> </p:column>
+	</p:dataTable>
+	</div>
+	</ui:define>
+	<ui:define name="bodydialog">
+	<p:dialog modal="true" widgetVar="dialogdetail">
+	<p:outputPanel id="dialogdetail">
+	
+	<table  width="800px" align="center">
+	<tr><td width="45%" >Request
+	</td><td width="10%"></td><td  width="45%">Response</td></tr>
+	<tr>
+	
+	<td valign="top" class="skelton"><p:outputLabel converter="JsonFormater" escape="false" value="#{RequestView.select.ws_req_text}" />
+	
+	
+	</td>
+	<td></td>
+	<td class="skelton"><p:outputLabel converter="JsonFormater" escape="false" value="#{RequestView.select.ws_req_response}" /></td>
+	</tr>
+	
+	</table>
+	</p:outputPanel>
+	</p:dialog>
+	</ui:define>
+	</ui:composition>
+	</f:view>
+	</html>
+	

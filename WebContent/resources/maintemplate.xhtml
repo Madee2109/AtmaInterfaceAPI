@@ -1,0 +1,135 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+	
+	
+<f:view contentType="text/html">
+
+	<h:head>
+		
+		
+ <f:facet name="first">
+ <meta charset="utf-8"></meta>
+                <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+                <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+                <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1.0, maximum-scale=1.0"/>
+                <meta name="apple-mobile-web-app-capable" content="yes" />
+            </f:facet>
+            <title><ui:insert name="title">Home</ui:insert></title>
+            <link href="#{ApplicationBean.applicationName}/resources/css/styleparamcommon.css" rel="stylesheet"></link>
+            
+            <link href="#{ApplicationBean.applicationName}/resources/css/maintemplate.css" rel="stylesheet"></link>
+            <link href="#{ApplicationBean.applicationName}/resources/css/applicationcommon.css" rel="stylesheet"></link>
+            <script src="#{ApplicationBean.applicationName}/resources/js/applicationcommon.js" />
+          
+</h:head>
+<h:body>
+
+<h:form id="inform"  >
+
+
+<div class="fullpage">
+ <div class="maintemplatelogomenu">
+  <div class="maintemplatelogomenudiv">
+ <table style="table-layout: fixed;width:100%" cellpadding="0" cellspacing="0" width="100%">
+ <tr >
+  <td width="30%" valign="middle">
+  
+    <p:commandLink action="#{Redirect.selectCompany}" oncomplete="hideProgress()" onclick="displayProgress()">
+ <p:ajax event="dialogReturn" oncomplete="hideProgress()" onstart="displayProgress()" listener="#{Redirect.redirectSelectedCompany}" />
+ <img style="padding-left:75px"  class="maintemplatelogo"  src="#{ApplicationBean.application_logo}"></img>
+
+
+ </p:commandLink>
+ </td>
+ 
+ 
+ <td align="center" width="40%" valign="middle">
+  <div class="companyname"></div>
+ 		</td>
+ 	<td valign="middle" align="right" >
+ <div class="username">#{UserContext.userName}</div>
+ </td>
+ <td width="75px">
+ <h:outputLink  title="Click hear to myprofile" value="#{ApplicationBean.applicationName}/user/myprofile">
+ <img   style="width:70%"   src="#{ApplicationBean.applicationName}/resources/images/myprofile.png"></img></h:outputLink></td>
+  <td width="25px">
+
+  </td>
+ </tr>
+ </table>
+ </div>
+ <div class="maintemplatelogomenu2div">
+ <table cellpadding="0" cellspacing="0" width="100%">
+ <tr >
+  <td width="75px">
+  </td>
+
+ 
+ <td align="left">
+  <p:megaMenu model="#{UserContext.menumodel}"  >
+                
+                </p:megaMenu>
+ 
+
+ 		</td>
+ 		
+ 		 <td valign="middle" align="right" >
+ <div style="min-width:200px"><p:clock  pattern="dd.MM.yyyy HH:mm:ss " mode="server" /></div>
+ </td>
+  <td valign="middle" align="center" >
+ <div style="min-width:50px">  <p:commandLink action="#{UserContext.logout}" styleClass="logouttext">
+ <div class="fa fa-sign-out"></div>
+ Log Out
+  </p:commandLink></div>
+ </td>
+ </tr>
+ </table>
+ </div>
+ <div>
+ 
+ </div>
+						
+ </div>
+ <table style="table-layout: fixed;width:100%">
+<tr><td width="10px"></td>
+<td>
+  <p:outputPanel id="loadshowsidemenu">
+ 
+<div class="bodydiv" >
+
+<div class="pagetitle">
+<ui:insert name="pagetitle"></ui:insert>
+</div>
+<ui:insert name="body"></ui:insert>
+<ui:insert  name="bodydialog"></ui:insert> 
+
+<div id="FreezeAllWork" class="FreezeAllWork">
+	<img src="#{ApplicationBean.applicationName}/images/preLoader.gif"  />
+	<ui:insert  name="processbar"></ui:insert> 
+</div>
+
+</div>
+</p:outputPanel>
+<div class="maintemplatefooter">
+<div style="margin-left:250px" align="center">
+<ui:insert  name="bodybutton"></ui:insert> 
+</div>
+</div>
+</td>
+<td  width="10px"></td>
+</tr>
+</table>
+</div>
+            
+</h:form>
+
+</h:body>
+
+</f:view>
+</html>
+
+

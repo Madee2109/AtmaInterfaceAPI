@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlrewrite>
+<rule>
+            <from>/user/myprofile</from>
+            <to type="forward">/user/usersetting.jsf</to>
+        </rule>
+ <rule>
+            <from>/user/home</from>
+            <to type="forward">/dashboard/userhome.jsf</to>
+        </rule>
+        
+        <rule>
+         <from>/useradmin/template</from>
+            <to type="forward">/admin/useradmintemplate.jsf</to>
+        </rule>
+        <rule>
+            <from>/user/list</from>
+            <to type="forward">/admin/userview.jsf</to>
+        </rule>
+        <rule>
+            <from>/reportsetting/([0-9]+)</from>
+            <to type="forward">/master/editreport.jsf?report_id=$1</to>
+        </rule>
+         <rule>
+            <from>/companysetup/([0-9]+)</from>
+            <to type="forward">/admin/companymaster.jsf?company_id=$1</to>
+        </rule>
+        <rule>
+            <from>/usersetup/([0-9]+)</from>
+            <to type="forward">/admin/usersetup.jsf?person_id=$1</to>
+        </rule>
+         <rule>
+            <from>/master/dmsproperty</from>
+            <to type="forward">/master/propertysetup.jsf</to>
+        </rule>
+        <rule>
+            <from>/master/datasource</from>
+            <to type="forward">/master/connection.jsf</to>
+        </rule>
+        <rule>
+            <from>/master/xlsdatasource</from>
+            <to type="forward">/master/connectionxls.jsf</to>
+        </rule>
+        <rule>
+            <from>/upload/new</from>
+            <to type="forward">/upload/process.jsf</to>
+        </rule>
+        <rule>
+            <from>/uploadxls/([0-9]+)</from>
+            <to type="forward">/upload/process.jsf?xls_run_id=$1</to>
+        </rule>
+         <rule>
+            <from>/uploadgroup/([a-z]+)</from>
+            <to type="forward">/upload/process.jsf?uploadgroup=$1</to>
+        </rule>
+        <rule>
+            <from>/school/leaver</from>
+            <to type="forward">/viewreport/reportview.jsf?report_id=1</to>
+        </rule>
+        <rule>
+            <from>/school/enquiry</from>
+            <to type="forward">/viewreport/reportview.jsf?report_id=2</to>
+        </rule>
+        <rule>
+            <from>/school/reregister</from>
+            <to type="forward">/viewreport/reportview.jsf?report_id=3</to>
+        </rule>
+         <rule>
+            <from>/app/adminreport</from>
+            <to type="forward">/viewreport/reportview.jsf?report_id=4</to>
+        </rule>
+        <rule>
+            <from>/gst2a/recon</from>
+            <to type="forward">/viewreport/reportviewGST.jsf?report_id=5</to>
+        </rule>
+        <rule>
+            <from>/gst2a/otherreport</from>
+            <to type="forward">/viewreport/reportview.jsf?report_id=6</to>
+        </rule>
+         <rule>
+            <from>/reportview/([0-9]+)</from>
+            <to type="forward">/viewreport/reportview.jsf?report_id=$1</to>
+        </rule>
+         <rule>
+            <from>/runreport/([0-9]+)</from>
+            <to type="forward">/viewreport/printpreview.jsf?rr_id=$1</to>
+        </rule>
+        <rule>
+            <from>/reportviewer/([0-9]+)</from>
+            <to type="forward">/viewreport/internalViewframe.jsf?rr_id=$1</to>
+        </rule>
+        <rule>
+            <from>/reportdrilldown/([0-9]+)/([0-9]+)</from>
+            <to type="forward">/viewreport/internalViewdrilldown.jsf?rr_id=$1&amp;ct_id=$2</to>
+        </rule>
+        <rule>
+            <from>/upload/view</from>
+            <to type="forward">/upload/processview.jsf</to>
+        </rule>
+        <rule>
+            <from>/viewreport/studentlist</from>
+            <to type="forward">/viewreport/schoolstudentlist.jsf</to>
+        </rule>
+        <rule>
+            <from>/manufacture/([0-9]+)</from>
+            <to type="forward">/Assets/AddManufacturer.jsf?person_id=$1</to>
+        </rule>
+       <rule>
+            <from>/gst2a/summary</from>
+            <to type="forward">/viewreport/gst2areconsummary.jsf</to>
+        </rule>
+        <rule>
+            <from>/gst2a/breakup</from>
+            <to type="forward">/viewreport/gst2areconbreakup.jsf</to>
+        </rule>
+        <rule>
+            <from>/gst2a/uploadview</from>
+            <to type="forward">/viewreport/gst2auploadview.jsf</to>
+        </rule>
+</urlrewrite>

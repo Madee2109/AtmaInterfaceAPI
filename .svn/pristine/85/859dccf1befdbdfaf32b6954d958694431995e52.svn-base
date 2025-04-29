@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:composite="http://java.sun.com/jsf/composite"
+	xmlns:bte="http://java.sun.com/jsf/composite/bte"
+	xmlns:p="http://primefaces.org/ui">
+<f:view>	
+<ui:composition template="/resources/maintemplate.xhtml"> 
+	<ui:define name="title">Test Run</ui:define>
+	<ui:define name="pagetitle">Test Run</ui:define>
+	<ui:define name="body">
+	<div style="width:100%;align:center" align="center">
+	
+	#{APIRun.url}
+	
+    
+	<div >
+	
+    
+	<table  width="100%" align="center">
+	<tr><td width="45%" >Request</td><td width="10%"></td>
+	<td  width="45%">
+	Response
+	<p:commandLink value=" (download)" ajax="false" action="#{APIRun.download}"></p:commandLink>
+	</td></tr>
+	<tr>
+	
+	<td valign="top" ><p:inputTextarea style="width:100%" value="#{APIRun.request_ex}" />
+	<p:commandButton action="#{APIRun.run}" onclick="displayProgress()" oncomplete="hideProgress()" update="result" value="Run"></p:commandButton>
+	
+	</td>
+	<td></td>
+	<td valign="top" class="skelton">
+	<p:outputPanel id="result">
+	
+	<p:outputLabel   converter="JsonFormater" escape="false" value="#{APIRun.response_ex}" />
+	<p:media width="100%" player="pdf" height="400px" cache="false" value="#{PrimefacesMedia.image}"  rendered="#{APIRun.showmedia}"></p:media>
+	</p:outputPanel>
+	</td>
+	</tr>
+	</table>
+	</div>
+	</div>
+	</ui:define>
+	</ui:composition>
+	</f:view>
+	</html>
+	

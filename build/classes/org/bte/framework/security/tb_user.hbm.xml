@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="org.bte.framework.security.tb_user" table="tb_user">
+		
+		
+        <id name="user_login_id" type="int">
+            <column name="user_login_id" />            
+        </id> 
+        
+        <property name="login_person_id" type="java.lang.Integer">
+            <column name="login_person_id" />
+        </property>        
+        
+        <property name="login_id" type="java.lang.String">
+            <column name="login_id" />
+        </property>   
+        
+         <property name="login_password" type="java.lang.String">
+            <column name="login_password" />
+        </property> 
+        
+        <property name="trnPwd" type="java.lang.String">
+            <column name="trn_password" />
+        </property>       
+    </class>
+</hibernate-mapping>      

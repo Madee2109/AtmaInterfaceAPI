@@ -1,0 +1,24 @@
+<html xmlns="http://www.w3.org/1999/xhtml"   
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+       xmlns:p="http://primefaces.org/ui"
+       xmlns:ui="http://java.sun.com/jsf/facelets"
+        xmlns:c="http://java.sun.com/jsp/jstl/core"
+      xmlns:composite="http://java.sun.com/jsf/composite"  >
+
+<composite:interface>
+<composite:attribute name="value" type="java.lang.String" required="true" />
+<composite:attribute name="display" type="boolean" default="true" ></composite:attribute>
+ 
+<composite:implementation>
+
+<h:outputLink value="#{ApplicationBean.applicationName}#{cc.attrs.value}" rendered="#{cc.attrs.display}">
+<img src="#{ApplicationBean.applicationName}/resources/images/clickhear.png" style="height:21px;cursor:pointer;"></img>
+</h:outputLink>
+
+    
+        
+</composite:implementation>
+</composite:interface>
+
+</html>

@@ -1,0 +1,49 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Dec 19, 2009 4:00:56 PM by Hibernate Tools 3.2.5.Beta -->
+<hibernate-mapping>
+    <class name="org.bte.framework.audit.tb_audit" table="tb_audit">
+		
+		
+        <id name="auditSno" type="int">
+            <column name="audit_sno" />
+            <generator class="assigned" />
+        </id> 
+        <property name="auditActivity" >
+            <column name="audit_activity" />
+        </property>        
+		<property name="auditDate" >
+            <column name="audit_date" />
+        </property>       
+        <property name="auditId">
+            <column name="audit_id" />
+        </property>               
+        <property name="auditOperation" >
+            <column name="audit_operation" />
+        </property>
+        <property name="auditUserid">
+            <column name="audit_userid" />
+        </property>
+        
+         <property name="audit_personid" type="java.lang.Integer">
+            <column name="audit_personid" />
+        </property>
+        
+         <property name="audit_encid" type="java.lang.Integer">
+            <column name="audit_encid" />
+        </property>
+        
+       
+        <property name="audit_information">
+            <column name="audit_information" />
+        </property>
+        <property name="login_audit_id" >
+            <column name="login_audit_id" />
+        </property>
+        
+        <property name="org_id" type="java.lang.Integer">
+            <column name="org_id" />
+        </property>
+    </class>
+</hibernate-mapping>        

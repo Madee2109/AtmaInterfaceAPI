@@ -1,0 +1,16 @@
+
+:root {
+    --main-theme-color: #868686;
+    --main-font-family: "Lato";
+     --main-font-size: 14px;
+    --main-menu-bg-color:  #092d5d;
+    --main-menu-font-color: #ffffff;
+    --main-menu-hover-bg-color:  #ffffff;
+    --main-menu-hover-font-color: #092d5d;
+    --main-bg-color:#ffffff;
+    --main-top-height:100px;
+    --main-side-width:250px;
+    --freezetabletable-header-bg:#f8f9fa;
+     --freezetabletable-footer-bg:#f8f9fa;
+     --page-title-color:#092d5d;
+}

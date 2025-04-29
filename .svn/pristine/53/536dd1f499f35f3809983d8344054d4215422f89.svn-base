@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app id="WebApp_ID" version="2.4" xmlns="http://java.sun.com/xml/ns/j2ee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd">
+	<servlet>
+    <servlet-name>Faces Servlet</servlet-name>
+    <servlet-class>javax.faces.webapp.FacesServlet</servlet-class>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Faces Servlet</servlet-name>
+    <url-pattern>/faces/*</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>Faces Servlet</servlet-name>
+    <url-pattern>*.jsf</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>Faces Servlet</servlet-name>
+    <url-pattern>*.faces</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>Faces Servlet</servlet-name>
+    <url-pattern>*.xhtml</url-pattern>
+  </servlet-mapping>
+  <context-param>
+    <param-name>facelets.SKIP_COMMENTS</param-name>
+    <param-value>true</param-value>
+  </context-param>
+  <context-param>
+    <param-name>javax.faces.PROJECT_STAGE</param-name>
+    <param-value>Production</param-value>
+  </context-param>
+  <context-param>
+    <param-name>javax.faces.STATE_SAVING_METHOD</param-name>
+    <param-value>server</param-value>
+  </context-param>
+  <context-param>
+    <param-name>javax.faces.PARTIAL_STATE_SAVING</param-name>
+    <param-value>true</param-value>
+  </context-param>
+  <context-param>
+    <param-name>javax.faces.VALIDATE_EMPTY_FIELDS</param-name>
+    <param-value>true</param-value>
+  </context-param>
+  <context-param>
+    <param-name>primefaces.CLIENT_SIDE_VALIDATION</param-name>
+    <param-value>true</param-value>
+  </context-param>
+  <context-param>
+    <param-name>primefaces.LEGACY_WIDGET_NAMESPACE</param-name>
+    <param-value>true</param-value>
+</context-param>
+  <context-param>
+   <param-name>com.sun.faces.enableRestoreView11Compatibility</param-name>
+   <param-value>true</param-value>
+</context-param>
+   <context-param>
+    <param-name>primefaces.UPLOADER</param-name>
+    <param-value>auto</param-value>
+</context-param> 
+  <!-- <listener>
+    <listener-class>org.bte.framework.security.BTEServletListener</listener-class>
+  </listener> -->
+  
+  <filter>
+    <filter-name>BTEWSSecurityFilter</filter-name>
+    <filter-class>org.bte.framework.ws.BTEWSSecurityFilter</filter-class>
+  </filter>
+  <filter-mapping>
+    <filter-name>BTEWSSecurityFilter</filter-name>
+    <url-pattern>/wsservice</url-pattern>
+  </filter-mapping> 
+  
+    <filter>
+    <filter-name>BTESecurityFilter</filter-name>
+    <filter-class>org.bte.framework.security.BTESecurityFilter</filter-class>
+  </filter>
+  <filter-mapping>
+    <filter-name>BTESecurityFilter</filter-name>
+    <url-pattern>/pages/*</url-pattern>
+  </filter-mapping> 
+  <filter-mapping><filter-name>BTESecurityFilter</filter-name><url-pattern>/wsrequestview</url-pattern>  </filter-mapping>
+  <filter-mapping><filter-name>BTESecurityFilter</filter-name><url-pattern>/apilist</url-pattern>  </filter-mapping>
+  <filter-mapping><filter-name>BTESecurityFilter</filter-name><url-pattern>/testrun</url-pattern>  </filter-mapping>
+   <filter-mapping><filter-name>BTESecurityFilter</filter-name><url-pattern>/apidetails/*</url-pattern>  </filter-mapping>
+   <filter-mapping><filter-name>BTESecurityFilter</filter-name><url-pattern>/apirun/*</url-pattern>  </filter-mapping>
+  <filter-mapping><filter-name>BTESecurityFilter</filter-name><url-pattern>/user/home</url-pattern>  </filter-mapping>
+  <filter>
+    <filter-name>BTESecurityFilterIndex</filter-name>
+    <filter-class>org.bte.framework.security.BTESecurityFilterIndex</filter-class>
+  </filter>
+  <filter-mapping>
+    <filter-name>BTESecurityFilterIndex</filter-name>
+    <url-pattern>/index.jsp</url-pattern>
+  </filter-mapping> 
+  <filter-mapping>
+    <filter-name>BTESecurityFilterIndex</filter-name>
+    <url-pattern>/index.xhtml</url-pattern>
+  </filter-mapping>  
+
+
+   <!-- <filter>
+    <filter-name>PrimeFaces FileUpload Filter</filter-name>
+    <filter-class>org.primefaces.webapp.filter.FileUploadFilter</filter-class>
+  </filter>
+  <filter-mapping>
+    <filter-name>PrimeFaces FileUpload Filter</filter-name>
+    <servlet-name>Faces Servlet</servlet-name>
+  </filter-mapping> -->
+  <mime-mapping>
+    <extension>xhtml</extension>
+    <mime-type>text/html;charset=UTF-8</mime-type>
+</mime-mapping>
+  <mime-mapping>
+    <extension>xls</extension>
+    <mime-type>application/vnd.ms-excel</mime-type>
+  </mime-mapping>
+<mime-mapping>
+     <extension>pdf</extension>
+     <mime-type>application/pdf</mime-type>
+</mime-mapping>
+  <welcome-file-list>
+    <welcome-file>index.xhtml</welcome-file>
+    <welcome-file>index.html</welcome-file>
+    <welcome-file>index.jsp</welcome-file>
+  </welcome-file-list>
+  <context-param>
+    <param-name>primefaces.THEME</param-name>
+    <param-value>bootstrap</param-value>
+  </context-param>
+ <context-param>
+<param-name>primefaces.FONT_AWESOME</param-name>
+<param-value>true</param-value>
+</context-param>
+  <session-config>
+    <session-timeout>1440</session-timeout>
+</session-config>
+
+<context-param>
+    <param-name>javax.faces.CONFIG_FILES</param-name>
+    <param-value>
+        WEB-INF/faces-config-navigation.xml,WEB-INF/faces-config-bean.xml
+    </param-value>
+</context-param>
+
+</web-app>

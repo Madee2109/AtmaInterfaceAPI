@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:composite="http://java.sun.com/jsf/composite"
+	xmlns:bte="http://java.sun.com/jsf/composite/bte"
+	xmlns:p="http://primefaces.org/ui">
+<f:view>	
+<ui:composition template="/resources/maintemplate.xhtml"> 
+	<ui:define name="title"></ui:define>
+	<ui:define name="pagetitle">
+	#{APIDetail.serobj.ws_service_name}
+	<br></br>
+	<span style="color:blue">(API key : #{APIDetail.serobj.ws_service_key})</span>
+	</ui:define>
+	<ui:define name="body">
+	<div style="width:100%;align:center" align="center">
+	
+	
+	<p:spacer height="20px"></p:spacer>
+	<p:outputLabel escape="false" value="#{APIDetail.serobj.ws_service_desc}" />
+	<p:treeTable value="#{APIDetail.paramtree}" var="pobj" rendered="#{APIDetail.showparam}">
+	
+	<p:column headerText="Param" style="width:250px">#{pobj.ws_param_name}</p:column>
+	<p:column headerText="Type" style="width:50px">#{pobj.ws_param_type_label}</p:column>
+	<p:column headerText="Possible " style="width:200px">#{pobj.ws_param_possible_value}</p:column>
+	<p:column headerText="Default" style="width:100px">#{pobj.ws_param_default_value}</p:column>
+	<p:column headerText="Desc">
+	<h:outputText value="#{pobj.ws_param_desc}" escape="false"></h:outputText>
+	</p:column>
+	</p:treeTable>
+	<div >
+	<table  width="800px" align="center">
+	<p:repeat var="service_list" value="#{APIDetail.service_list}">
+	<tr><td width="45%" >Request
+	<h:outputLink value="#{ApplicationBean.applicationName}/apirun/#{service_list.ws_service_ex_id}"> (Run Example)</h:outputLink>
+	</td><td width="10%"></td><td  width="45%">Response</td></tr>
+	<tr>
+	
+	<td valign="top" class="skelton"><p:outputLabel converter="JsonFormater" escape="false" value="#{service_list.ws_service_request_ex}" />
+	
+	
+	</td>
+	<td></td>
+	<td class="skelton"><p:outputLabel converter="JsonFormater" escape="false" value="#{service_list.ws_service_response_ex}" /></td>
+	</tr>
+	</p:repeat>
+	</table>
+	</div>
+	</div>
+	</ui:define>
+	</ui:composition>
+	</f:view>
+	</html>
+	

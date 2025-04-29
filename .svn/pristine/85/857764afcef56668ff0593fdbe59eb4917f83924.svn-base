@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:composite="http://java.sun.com/jsf/composite"
+	xmlns:bte="http://java.sun.com/jsf/composite/bte"
+	xmlns:p="http://primefaces.org/ui">
+<f:view>	
+<ui:composition template="/resources/maintemplate.xhtml"> 
+	<ui:define name="title"></ui:define>
+	<ui:define name="pagetitle">API List</ui:define>
+	<ui:define name="body">
+	<div style="width:100%;align:center" align="center">
+	<p:dataTable value="#{APIList.list}" var="list" rowIndexVar="row">
+	<p:column  headerText="#" width="20">#{row+1}</p:column>
+	<p:column headerText="Name" width="150">#{list.ws_service_name}</p:column>
+	<p:column headerText="Key" width="150">#{list.ws_service_key}</p:column>
+	<p:column headerText="Desc"><p:outputLabel value="#{list.ws_service_desc}" escape="false" /> </p:column>
+	<p:column   width="20"><bte:outputLink value="/apidetails/#{list.ws_service_id}" /> </p:column>
+	</p:dataTable>
+	</div>
+	</ui:define>
+	</ui:composition>
+	</f:view>
+	</html>
+	
